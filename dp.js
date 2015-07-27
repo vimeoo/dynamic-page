@@ -919,7 +919,7 @@ var UserAction = {
                     
                     if(result != null && result != '' && result.indexOf('exception') < 0){
                         retrieveWelinkLayout(result, callbackFunction);
-                    } else if(AjaxResponses.record.RecordTypeId != null){
+                    } else if(AjaxResponses.record != null && AjaxResponses.record.RecordTypeId != null){
                         retrieveLayoutByRecordType(sobjectName, AjaxResponses.record.RecordTypeId, callbackFunction);
                     } else {
                         callbackFunction();
