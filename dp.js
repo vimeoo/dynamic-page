@@ -1057,8 +1057,13 @@ var UserAction = {
                         AjaxResponses.layout = JSON.parse(welinkStorage['welink_' + sobjectName + '_layout']);
                     }
                     
-                    AjaxResponses.metadata = JSON.parse(welinkStorage['welink_' + sobjectName + '_metadata']);
-                    AjaxResponses.searchlayout = JSON.parse(welinkStorage['welink_' + sobjectName + '_searchlayout']);
+                    if(welinkStorage['welink_' + sobjectName + '_metadata'] != null){
+                        AjaxResponses.metadata = JSON.parse(welinkStorage['welink_' + sobjectName + '_metadata']);
+                    }
+                    
+                    if(welinkStorage['welink_' + sobjectName + '_searchlayout']){
+                        AjaxResponses.searchlayout = JSON.parse(welinkStorage['welink_' + sobjectName + '_searchlayout']);
+                    }
                     
                     if(welinkStorage['welink_' + sobjectName + '_recordtype'] != null){
                         AjaxResponses.recordtype = JSON.parse(welinkStorage['welink_' + sobjectName + '_recordtype']);
