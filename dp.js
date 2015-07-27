@@ -1049,27 +1049,30 @@ var UserAction = {
 
             retrieveSobjectRelated:function(sobjectName, callbackFunction){
                 if(welinkStorage['welink_' + sobjectName + '_hasRetrievedSobjectRelated'] == 'true'){
+                    
+                    var null_values = [undefined, null, 'null', 'undefined'];
+                    
                     AjaxResponses.sobjectdescribe = JSON.parse(welinkStorage['welink_' + sobjectName + '_sobjectdescribe']);
                     AjaxResponses.listviews = JSON.parse(welinkStorage['welink_' + sobjectName + '_listviews']);
                     AjaxResponses.layouts = JSON.parse(welinkStorage['welink_' + sobjectName + '_layouts']);
                     
-                    if(welinkStorage['welink_' + sobjectName + '_layout'] != null){
+                    if(null_values.indexOf(welinkStorage['welink_' + sobjectName + '_layout']) < 0){
                         AjaxResponses.layout = JSON.parse(welinkStorage['welink_' + sobjectName + '_layout']);
                     }
                     
-                    if(welinkStorage['welink_' + sobjectName + '_metadata'] != null){
+                    if(null_values.indexOf(welinkStorage['welink_' + sobjectName + '_metadata']) < 0){
                         AjaxResponses.metadata = JSON.parse(welinkStorage['welink_' + sobjectName + '_metadata']);
                     }
                     
-                    if(welinkStorage['welink_' + sobjectName + '_searchlayout']){
+                    if(null_values.indexOf(welinkStorage['welink_' + sobjectName + '_searchlayout']) < 0){
                         AjaxResponses.searchlayout = JSON.parse(welinkStorage['welink_' + sobjectName + '_searchlayout']);
                     }
                     
-                    if(welinkStorage['welink_' + sobjectName + '_recordtype'] != null){
+                    if(null_values.indexOf(welinkStorage['welink_' + sobjectName + '_recordtype']) < 0){
                         AjaxResponses.recordtype = JSON.parse(welinkStorage['welink_' + sobjectName + '_recordtype']);
                     }
                     
-                    if(welinkStorage['welink_' + sobjectName + '_businessprocess'] != null){
+                    if(null_values.indexOf(welinkStorage['welink_' + sobjectName + '_businessprocess']) < 0){
                         AjaxResponses.businessprocess = JSON.parse(welinkStorage['welink_' + sobjectName + '_businessprocess']);
                     }
                     callbackFunction();
